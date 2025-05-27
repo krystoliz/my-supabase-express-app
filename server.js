@@ -1,13 +1,14 @@
-require('dotenv').config(); // Load environment variables first
-const express = require('express');
-const cors = require('cors'); // Import CORS middleware for handling cross-origin requests
-const { supabase, supabaseAdmin } = require('./src/config/supabaseClient'); // Import Supabase clients
+import dotenv from 'dotenv'; 
+dotenv.config(); // Load environment variables from .env file
+import express from 'express';
+import cors from 'cors'
+import {supabase, supabaseAdmin} from './src/config/supabaseClient'; // Import Supabase clients
 
 // Import route modules
-const authRoutes = require('./src/routes/authRoutes');
-const flashcardRoutes = require('./src/routes/flashcardRoutes'); // Example for other routes
-const studyRoutes = require('./src/routes/studyRoutes'); // <-- NEW: Import study routes
-const llmRoutes = require('./src/routes/llmRoutes');
+import authRoutes from './src/routes/authRoutes';
+import flashcardRoutes from './src/routes/flashcardRoutes'; // Example for other routes
+import studyRoutes from './src/routes/studyRoutes'; // <-- NEW: Import study routes
+import llmRoutes from './src/routes/llmRoutes';
 
 const app = express();
 const port = process.env.PORT || 3000;

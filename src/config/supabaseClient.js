@@ -1,6 +1,8 @@
 // src/config/supabaseClient.js
-require('dotenv').config();
-const { createClient } = require('@supabase/supabase-js');
+import dotenv from 'dotenv'; // Import dotenv
+dotenv.config(); // Call config after importing
+
+import { createClient } from '@supabase/supabase-js'; // Import named export from supabase-js
 
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseAnonKey = process.env.SUPABASE_ANON_KEY;
@@ -19,4 +21,4 @@ const supabase = createClient(supabaseUrl, supabaseAnonKey);
 // Uses the service_role key to bypass RLS.
 const supabaseAdmin = createClient(supabaseUrl, supabaseServiceRoleKey);
 
-module.exports = { supabase, supabaseAdmin };
+export { supabase, supabaseAdmin }; // Export named exports

@@ -1,8 +1,9 @@
 // src/routes/authRoutes.js
-const express = require('express');
-const router = express.Router(); // Create a new router instance
-const { supabase, supabaseAdmin } = require('../config/supabaseClient');
-const { protectRoute } = require('../middleware/authMiddleware');
+import express from 'express'; // Use ES6 import syntax for consistency
+import { supabase, supabaseAdmin } from '../config/supabaseClient'; // Import Supabase clientsim
+import { protectRoute } from '../middleware/authMiddleware'; // Import authentication middleware
+import { protectRoute } from '../middleware/authMiddleware';
+
 
 // 1. User Sign-Up
 router.post('/signup', async (req, res) => {

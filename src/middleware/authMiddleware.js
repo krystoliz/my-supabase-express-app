@@ -1,5 +1,6 @@
 // src/middleware/authMiddleware.js
-const { supabase } = require('../config/supabaseClient'); // Only need 'supabase' client for auth
+// Only need 'supabase' client for auth
+import { supabase } from '../config/supabaseClient';
 
 async function protectRoute(req, res, next) {
   const token = req.headers.authorization?.split(' ')[1]; // Expects "Bearer <token>"

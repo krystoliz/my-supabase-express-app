@@ -1,9 +1,9 @@
 // src/routes/llmRoutes.js
-const express = require('express');
+import express from 'express'; // Use ES6 import syntax for consistency
 const router = express.Router();
-const fetch = require('node-fetch').default;
-const { supabaseAdmin } = require('../config/supabaseClient');
-const { protectRoute } = require('../middleware/authMiddleware');
+import fetch from 'node-fetch'; // Ensure node-fetch is installed and imported correctly
+import { supabaseAdmin } from '../config/supabaseClient';
+import { protectRoute } from '../middleware/authMiddleware';
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 // Use the full model name found from listModels
