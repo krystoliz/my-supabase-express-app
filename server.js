@@ -7,6 +7,7 @@ const { supabase, supabaseAdmin } = require('./src/config/supabaseClient'); // I
 const authRoutes = require('./src/routes/authRoutes');
 const flashcardRoutes = require('./src/routes/flashcardRoutes'); // Example for other routes
 const studyRoutes = require('./src/routes/studyRoutes'); // <-- NEW: Import study routes
+const llmRoutes = require('./src/routes/llmRoutes');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -36,7 +37,8 @@ app.get('/', (req, res) => {
 // Mount Route Modules
 app.use('/auth', authRoutes); // All routes defined in authRoutes will be prefixed with /auth
 app.use('/api/flashcards', flashcardRoutes); // Example: Prefix flashcard routes with /api/flashcards
-app.use('/api/study', studyRoutes); // <-- NEW: Use this for study mode operations
+app.use('/api/study', studyRoutes);
+app.use('/api/llm', llmRoutes);      // <-- NEW: Use this for LLM operations
 
 // Basic error handling middleware (optional, but good practice for unhandled errors)
 app.use((err, req, res, next) => {
