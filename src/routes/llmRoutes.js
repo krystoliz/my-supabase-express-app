@@ -2,8 +2,8 @@
 import express from 'express'; // Use ES6 import syntax for consistency
 const router = express.Router();
 import fetch from 'node-fetch'; // Ensure node-fetch is installed and imported correctly
-import { supabaseAdmin } from '../config/supabaseClient';
-import { protectRoute } from '../middleware/authMiddleware';
+import { supabaseAdmin } from '../config/supabaseClient.js';
+import { protectRoute } from '../middleware/authMiddleware.js';
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 // Use the full model name found from listModels
@@ -140,4 +140,4 @@ router.post('/generate-flashcards-with-llm', protectRoute, async (req, res) => {
     }
 });
 
-module.exports = router;
+export default router;

@@ -1,9 +1,8 @@
 // src/middleware/authMiddleware.js
-// Only need 'supabase' client for auth
-import { supabase } from '../config/supabaseClient';
+import { supabase } from '../config/supabaseClient.js';
 
 async function protectRoute(req, res, next) {
-  const token = req.headers.authorization?.split(' ')[1]; // Expects "Bearer <token>"
+  const token = req.headers.authorization?.split(' ')[1];
 
   if (!token) {
     return res.status(401).json({ error: 'No authorization token provided.' });
@@ -21,12 +20,12 @@ async function protectRoute(req, res, next) {
       return res.status(401).json({ error: 'User not found for this token.' });
     }
 
-    req.user = user; // Attach the authenticated user object to the request
-    next(); // Proceed to the next middleware or route handler
+    req.user = user;
+    next();
   } catch (err) {
     console.error('Unexpected error in protectRoute middleware:', err);
     res.status(500).json({ error: 'Internal server error during authentication.' });
   }
 }
 
-module.exports = { protectRoute };
+export { protectRoute };

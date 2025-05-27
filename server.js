@@ -2,13 +2,13 @@ import dotenv from 'dotenv';
 dotenv.config(); // Load environment variables from .env file
 import express from 'express';
 import cors from 'cors'
-import {supabase, supabaseAdmin} from './src/config/supabaseClient'; // Import Supabase clients
+import {supabase, supabaseAdmin} from './src/config/supabaseClient.js'; // Import Supabase clients
 
 // Import route modules
-import authRoutes from './src/routes/authRoutes';
-import flashcardRoutes from './src/routes/flashcardRoutes'; // Example for other routes
-import studyRoutes from './src/routes/studyRoutes'; // <-- NEW: Import study routes
-import llmRoutes from './src/routes/llmRoutes';
+import authRoutes from './src/routes/authRoutes.js';
+import flashcardRoutes from './src/routes/flashcardRoutes.js'; // Example for other routes
+import studyRoutes from './src/routes/studyRoutes.js'; // <-- NEW: Import study routes
+import llmRoutes from './src/routes/llmRoutes.js';
 
 const app = express();
 const port = process.env.PORT || 3000;

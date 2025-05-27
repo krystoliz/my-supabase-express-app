@@ -1,9 +1,9 @@
 // src/routes/authRoutes.js
 import express from 'express'; // Use ES6 import syntax for consistency
-import { supabase, supabaseAdmin } from '../config/supabaseClient'; // Import Supabase clientsim
-import { protectRoute } from '../middleware/authMiddleware'; // Import authentication middleware
-import { protectRoute } from '../middleware/authMiddleware';
+import { supabase, supabaseAdmin } from '../config/supabaseClient.js'; // Import Supabase clientsim
+import { protectRoute } from '../middleware/authMiddleware.js'; // Import authentication middleware
 
+const router = express.Router();
 
 // 1. User Sign-Up
 router.post('/signup', async (req, res) => {
@@ -138,4 +138,4 @@ router.get('/me', protectRoute, async (req, res) => {
   }
 });
 
-module.exports = router; // Export the router
+export default router; // Export the router
